@@ -16,11 +16,6 @@ The withdrawn shares are scaled to get the total earnings, along with vaultEnded
 
 However, `totalProtocolFee` is not scaled, which means that as the steth eth/shares ratio increases, the protocol fee increases with it, otherwise it will overestimate the `totalEarnings`, as can be confirmed in the calculations in the `POC`.
 
-### Root Cause
-
-In `LidoVault.sol:775`, `protocolFee` is not scaled to the current steth eth/shares. It should be in shares and multiplied by the current exchange rate.
-In `LidoVault.sol:533`, `protocolFee` should be tracked as shares.
-
 ### Internal pre-conditions
 
 None.
